@@ -25,18 +25,8 @@
           , <&gpio0 10 GPIO_ACTIVE_HIGH>
           ; // addressable space is 8x8, (minus paired values)
     };
-    
-        leds {
-        compatible = "gpio-leds";
 
-        bt_led: bt_led {
-            gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>; 
-            label = "BT LED";
-        };
-    };
-
-
-        encoder: encoder {
+    encoder: encoder {
         compatible = "alps,ec11";
         a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
