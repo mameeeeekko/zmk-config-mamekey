@@ -22,4 +22,4 @@ include:
   - board: seeeduino_xiao_ble
     shield: mamekey
   - board: seeeduino_xiao_ble
-    shield: mamekey rgbled_adapter
+    shield: hummingbird rgbled_adapter
