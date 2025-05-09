@@ -5,6 +5,7 @@
 / {
     chosen {
         zmk,physical-layout = &mamekey_physical_layout;
+        zmk,underglow = &led_strip;
     };
 
     default_transform: matrix_transform {
