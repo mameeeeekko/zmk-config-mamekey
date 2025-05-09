@@ -69,8 +69,97 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&lt 3 LA(GRAVE)>, <&kp LC(SPC)>;
-        };               
+        };
+        
+    alt_p: alt-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp TAB>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+        keep-mods = <(MOD_LALT)>;
     };
+    gui_p: gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp RIGHT>;
+        mods = <(MOD_LGUI|MOD_RGUI)>;
+        keep-mods = <(MOD_LGUI)>;
+    };
+    ag_p: alt-gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&gui_p>, <&alt_p>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+    arrow_p: arrow-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp RIGHT>, <&kp DOWN>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+    };
+    vol_arrow_p: volume-arrow-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp C_VOL_UP>, <&arrow_p>;
+        mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+    };
+    vol_alt_gui_p: volume-alt-gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&vol_arrow_p>, <&ag_p>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+    };
+    alt_n: alt-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp LS(TAB)>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+        keep-mods = <(MOD_LALT)>;
+    };
+    gui_n: gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp LEFT>;
+        mods = <(MOD_LGUI|MOD_RGUI)>;
+        keep-mods = <(MOD_LGUI)>;
+    };
+    ag_n: alt-gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&gui_n>, <&alt_n>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+    arrow_n: arrow-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT>, <&kp UP>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+    };
+    vol_arrow_n: volume-arrow-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp C_VOL_DN>, <&arrow_n>;
+        mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+    };
+    vol_alt_gui_n: volume-right-alt-gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&vol_arrow_n>, <&ag_n>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+    };
+    vol_alt_tab: volume-alt-tab {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
+        tap-ms = <10>;
+    }; 
+    
+    rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>;
+    };            
+};
     
     
 
@@ -86,7 +175,7 @@
 
             >;   
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&vol_alt_tab>;
         };
 
                  NUM {
@@ -112,7 +201,7 @@
 
             >;
             
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&vol_alt_tab>;
         };
 
                ARROW {
@@ -125,7 +214,7 @@
 
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+            sensor-bindings = <&vol_alt_tab>;
         };
         
             layer_4 {
@@ -138,7 +227,7 @@
 
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+            sensor-bindings = <&vol_alt_tab>;
         };
         
         layer_5 {
@@ -149,6 +238,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 
             >;
+            sensor-bindings = <&vol_alt_tab>;
         };
 
         layer_6 {
@@ -160,6 +250,7 @@
 
 
             >;
+            sensor-bindings = <&rgb_encoder>;
         };        
      };   
 };
