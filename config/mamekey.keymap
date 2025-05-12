@@ -9,7 +9,7 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <200>;
 };
 
 / {
@@ -18,47 +18,47 @@
 
         esc {
             bindings = <&kp ESC>;
-            key-positions = <1 2>;
+            key-positions = <1 0>;
         };        
 
         shift_tab {
             bindings = <&kp LS(TAB)>;
-            key-positions = <2 3>;
+            key-positions = <2 1>;
         };
         
         single_quotation {
             bindings = <&kp SINGLE_QUOTE>;
-            key-positions = <6 7>;
+            key-positions = <6 5>;
         };
                        
         tab {
             bindings = <&kp TAB>;
-            key-positions = <8 9>;
+            key-positions = <8 7>;
         };
 
         eq {
             bindings = <&kp EQUAL>;
-            key-positions = <9 10>;
+            key-positions = <9 8>;
         };
 
         l3_arrow {
             bindings = <&mo 3>;
-            key-positions = <13 14>;
+            key-positions = <13 12>;
         };
                         
         minus {
             bindings = <&kp MINUS>;
-            key-positions = <20 21>;
+            key-positions = <20 19>;
         };
 
         ctrl_alt_del {
             bindings = <&kp LC(RA(DEL))>;
-            key-positions = <22 23>;
+            key-positions = <22 21>;
         };
 
         atmark {
             bindings = <&kp AT_SIGN>;
-            key-positions = <31 32>;
+            key-positions = <31 30>;
         };
     };
 
@@ -153,12 +153,38 @@
         bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
         tap-ms = <10>;
     }; 
+        
+    led_ca_p: ctrl-alt-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp RGB_HUI>, <&kp RGB_SAI>;
+        mods = <MOD_LCTL|MOD_RCTL)>;
+    };
+    led_br_sa_hu_p: led-br-sa-hu-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&rgb_ug RGB_BRI>, <&led_ca_p>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>;
+    };
     
-    rgb_encoder: rgb_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>;
-    };            
+    led_ca_n: ctrl-alt-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_SAD>;
+        mods = <MOD_LCTL|MOD_RCTL)>;
+    };
+    led_br_sa_hu_n: led-br-sa-hu-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&rgb_ug RGB_BRD>, <&led_ca_n>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>;
+    }; 
+    led_control: led-control {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&led_br_sa_hu_n>, <&led_br_sa_hu_p>;
+        tap-ms = <10>;
+    };           
 };
     
     
@@ -171,7 +197,7 @@
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
 &mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog 1                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT SQT
 &kp Z             &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &kp DEL       &lt 1 SPACE  &trans                    &lt 2 ENTER         &kp BACKSPACE  &tog 4       &tog 6      &rgb_ug RGB_TOG
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt 1 SPACE  &trans                    &lt 2 BACKSPACE     &kp ENTER  &tog 4       &tog 6      &rgb_ug RGB_TOG
 
             >;   
 
@@ -250,7 +276,7 @@
 
 
             >;
-            sensor-bindings = <&rgb_encoder>;
+            sensor-bindings = <&led_control>;
         };        
      };   
 };
