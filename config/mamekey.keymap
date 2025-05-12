@@ -158,7 +158,7 @@
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_SAI>;
-        mods = <MOD_LCTL|MOD_RCTL)>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
     };
     led_br_sa_hu_p: led-br-sa-hu-positive {
         compatible = "zmk,behavior-mod-morph";
