@@ -154,9 +154,9 @@
     desk_move_p: desk-move-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp RIGHT>;
+        bindings = <&kp 0>, <&kp LC(RIGHT)>;
         mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_RGUI MOD_LCTL)>;
+        keep-mods = <(MOD_RGUI)>;
     };
     gui_p: gui-positive {
         compatible = "zmk,behavior-mod-morph";
@@ -208,30 +208,30 @@
     goback_n: goback-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LEFT>;
+        bindings = <&kp 0>, <&kp LS(LEFT)>;
         mods = <(MOD_RALT)>;
-        keep-mods = <(MOD_RALT MOD_LSFT)>;
+        keep-mods = <(MOD_RALT>;
     };
     alt_n: alt-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&goback_n>, <&kp TAB>;
+        bindings = <&goback_n>, <&kp LS(TAB)>;
         mods = <(MOD_LALT)>;
-        keep-mods = <(MOD_LALT MOD_LSFT)>;
+        keep-mods = <(MOD_LALT)>;
     };    
     desk_move_n: desk-move-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LEFT>;
+        bindings = <&kp 0>, <&kp LC(LEFT)>;
         mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_RGUI MOD_LCTL)>;
+        keep-mods = <(MOD_RGUI)>;
     };
     gui_n: gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&desk_move_n>, <&kp LEFT>;
+        bindings = <&desk_move_n>, <&kp LS(LEFT)>;
         mods = <(MOD_LGUI)>;
-        keep-mods = <(MOD_LGUI MOD_LSFT)>;
+        keep-mods = <(MOD_LGUI)>;
     };    
     ag_n: alt-gui-negative {
         compatible = "zmk,behavior-mod-morph";
@@ -242,9 +242,9 @@
     tab_move_n: tab-move-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp TAB>;
+        bindings = <&kp 0>, <&kp LS(TAB)>;
         mods = <(MOD_RCTL)>;
-        keep-mods = <(MOD_RCTL MOD_LSFT)>;
+        keep-mods = <(MOD_RCTL)>;
     };    
     arrow_tab_move_n: arrow-tab-negative {
         compatible = "zmk,behavior-mod-morph";
