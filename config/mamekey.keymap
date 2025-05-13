@@ -10,8 +10,9 @@
 #define JIS 3 //WIN JIS
 #define JNUM 4 //WIN JIS
 #define JSYM 5 //WIN JIS
-#define ARR 6
-#define BT 7
+#define MARR 6 //MAC
+#define WARR 7 //WIN
+#define BT 8
 
 #define JP_ZKHK  GRAVE        // Zenkaku ↔ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
 #define JP_MINUS MINUS        // -
@@ -101,10 +102,17 @@
             key-positions = <20 19>;
         };
 
-        layer_arrow {
-            bindings = <&mo ARR>;
+        mac_layer_arrow {
+            bindings = <&mo MARR>;
+            layers = <0>; 
             key-positions = <13 12>;
         };
+
+        win_layer_arrow {
+            bindings = <&mo WARR>;
+            layers = <JIS>; 
+            key-positions = <13 12>;
+        };        
                         
         minus {
             bindings = <&kp MINUS>;
@@ -137,148 +145,296 @@
             bindings = <&lt ARR LA(GRAVE)>, <&kp LC(SPC)>;
         };
         
-    goback_p: goback-positive {
+    //encorder control WIN  
+    w_r_alt_p: win-right-alt-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp RIGHT>;
         mods = <(MOD_RALT)>;
         keep-mods = <(MOD_RALT)>;
     };
-    alt_p: alt-positive {
+    w_alt_p: win-alt-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&goback_p>, <&kp TAB>;
+        bindings = <&m_r_alt_p>, <&kp TAB>;
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };    
-    desk_move_p: desk-move-positive {
+    w_r_gui_p: win-right-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LC(RIGHT)>;
         mods = <(MOD_RGUI)>;
         keep-mods = <(MOD_RGUI)>;
     };
-    gui_p: gui-positive {
+    w_gui_p: win-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&desk_move_p>, <&kp RIGHT>;
+        bindings = <&w_r_gui_p>, <&kp RIGHT>;
         mods = <(MOD_LGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
-    ag_p: alt-gui-positive {
+    w_alt_gui_p: win-alt-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&gui_p>, <&alt_p>;
+        bindings = <&w_gui_p>, <&w_alt_p>;
         mods = <(MOD_LALT|MOD_RALT)>;
     };
-    tab_move_p: tab-move-positive {
+    w_r_ctrl_p: win-right-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp TAB>;
         mods = <(MOD_RCTL)>;
         keep-mods = <(MOD_RCTL)>;
     };    
-    arrow_tab_move_p: arrow-tab-positive {
+    w_ctrl_p: win-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&tab_move_p>, <&kp DOWN>;
+        bindings = <&w_r_ctrl_p>, <&kp DOWN>;
         mods = <(MOD_LCTL)>;
     };
        
-    arrow_p: arrow-positive {
+    w_shift_ctrl_p: win-shift-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp RIGHT>, <&arrow_tab_move_p>;
+        bindings = <&kp RIGHT>, <&w_ctrl_p>;
         mods = <(MOD_LCTL|MOD_RCTL)>;
     };
-    vol_arrow_p: volume-arrow-positive {
+    w_shift_ctrl_none_p: win_shift-ctrl-none-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp C_VOL_UP>, <&arrow_p>;
+        bindings = <&kp C_VOL_UP>, <&w_shift_ctrl_p>;
         mods = <(MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL)>;
     };
-    vol_alt_gui_p: volume-alt-gui-positive {
+    win_enc_p: win-enc-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&vol_arrow_p>, <&ag_p>;
+        bindings = <&w_shift_ctrl_none_p>, <&w_alt_gui_p>;
         mods = <(MOD_LALT|MOD_LGUI|MOD_RALT|MOD_RGUI)>;
     };
    
-    
-    goback_n: goback-negative {
+    w_r_alt_n: win-right-alt-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LS(LEFT)>;
+        bindings = <&kp 0>, <&kp LEFT>;
         mods = <(MOD_RALT)>;
         keep-mods = <(MOD_RALT)>;
     };
-    alt_n: alt-negative {
+    w_alt_n: win-alt-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&goback_n>, <&kp LS(TAB)>;
+        bindings = <&w_r_alt_n>, <&kp LS(TAB)>;
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };    
-    desk_move_n: desk-move-negative {
+    w_r_gui_n: win-right-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LC(LEFT)>;
         mods = <(MOD_RGUI)>;
         keep-mods = <(MOD_RGUI)>;
     };
-    gui_n: gui-negative {
+    w_gui_n: win-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&desk_move_n>, <&kp LS(LEFT)>;
+        bindings = <&w_r_gui_n>, <&kp LEFT>;
         mods = <(MOD_LGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
-    ag_n: alt-gui-negative {
+    w_alt_gui_n: win-alt-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&gui_n>, <&alt_n>;
+        bindings = <&w_gui_n>, <&w_alt_n>;
         mods = <(MOD_LALT|MOD_RALT)>;
     };
-    tab_move_n: tab-move-negative {
+    w_r_ctrl_n: win-right-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LS(TAB)>;
         mods = <(MOD_RCTL)>;
         keep-mods = <(MOD_RCTL)>;
     };    
-    arrow_tab_move_n: arrow-tab-negative {
+    w_ctrl_n: win-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&tab_move_n>, <&kp UP>;
+        bindings = <&w_r_ctrl_n>, <&kp UP>;
         mods = <(MOD_LCTL)>;
-    };
-       
-    arrow_n: arrow-negative {
+    };  
+    w_shift_ctrl_n: win-shift-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp LEFT>, <&arrow_tab_move_n>;
+        bindings = <&kp LEFT>, <&w_ctrl_n>;
         mods = <(MOD_LCTL|MOD_RCTL)>;
     };
-    vol_arrow_n: volume-arrow-negative {
+    w_shift_ctrl_none_n: win_shift-ctrl-none-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp C_VOL_DN>, <&arrow_n>;
+        bindings = <&kp C_VOL_DN>, <&w_shift_ctrl_n>;
         mods = <(MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL)>;
     };
-    vol_alt_gui_n: volume-alt-gui-negative {
+    win_enc_n: win-enc-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&vol_arrow_n>, <&ag_n>;
+        bindings = <&w_shift_ctrl_none_n>, <&w_alt_gui_n>;
         mods = <(MOD_LALT|MOD_LGUI|MOD_RALT|MOD_RGUI)>;
     };
     
-    vol_alt_tab: volume-alt-tab {
+    win_enc: win-enc {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&vol_alt_gui_n>, <&vol_alt_gui_p>;
+        bindings = <&win_enc_n>, <&win_enc_p>;
+        tap-ms = <10>;
+    };
+    
+//encorder control MAC
+    
+    //browser forward  
+    m_r_alt_p: mac-right-alt-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp RIGHT>;
+        mods = <(MOD_RALT)>;
+        keep-mods = <(MOD_LGUI)>;
+    };
+    m_alt_p: mac-alt-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_alt_p>, <&kp TAB>;
+        mods = <(MOD_LALT)>;
+        keep-mods = <(MOD_LALT)>;
+    };
+    //desk move    
+    m_r_gui_p: mac-right-gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp RIGHT>;
+        mods = <(MOD_RGUI)>;
+        keep-mods = <(MOD_LCTL)>;
+    };
+    m_gui_p: mac-gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_gui_p>, <&kp RIGHT>;
+        mods = <(MOD_LGUI)>;
+        keep-mods = <(MOD_LGUI)>;
+    };    
+    m_alt_gui_p: mac-alt-gui-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_gui_p>, <&m_alt_p>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+    //browser tab move
+    m_r_ctrl_p: mac-right-ctrl-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp TAB>;
+        mods = <(MOD_RCTL)>;
+        keep-mods = <(MOD_LCTL)>;
+    };    
+    m_ctrl_p: mac-ctrl-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_ctrl_p>, <&kp DOWN>;
+        mods = <(MOD_LCTL)>;
+    };  
+    m_shift_ctrl_p: mac-shift-ctrl-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp RIGHT>, <&m_ctrl_p>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+    };
+    m_shift_ctrl_none_p: mac_shift-ctrl-none-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp C_VOL_UP>, <&m_shift_ctrl_p>;
+        mods = <(MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL)>;
+    };
+    mac_enc_p: mac-enc-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_shift_ctrl_none_p>, <&m_alt_gui_p>;
+        mods = <(MOD_LALT|MOD_LGUI|MOD_RALT|MOD_RGUI)>;
+    };
+    
+    //browser back
+    m_r_alt_n: mac-right-alt-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp LEFT>;
+        mods = <(MOD_RALT)>;
+        keep-mods = <(MOD_LGUI)>;
+    };
+    m_alt_n: mac-alt-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_alt_n>, <&kp LS(TAB)>;
+        mods = <(MOD_LALT)>;
+        keep-mods = <(MOD_LALT)>;
+    };
+    //desk move    
+    m_r_gui_n: mac-right-gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp LEFT>;
+        mods = <(MOD_RGUI)>;
+        keep-mods = <(MOD_LCTL)>;
+    };
+    m_gui_n: mac-gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_gui_n>, <&kp LEFT>;
+        mods = <(MOD_LGUI)>;
+        keep-mods = <(MOD_LGUI)>;
+    };    
+    m_alt_gui_n: mac-alt-gui-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_gui_n>, <&m_alt_n>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+    //browser tab move
+    m_r_ctrl_n: mac-right-ctrl-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp 0>, <&kp LS(TAB)>;
+        mods = <(MOD_RCTL)>;
+        keep-mods = <(MOD_LCTL)>;
+    };    
+    m_ctrl_n: mac-ctrl-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_r_ctrl_n>, <&kp UP>;
+        mods = <(MOD_LCTL)>;
+    };  
+    m_shift_ctrl_n: mac-shift-ctrl-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT>, <&m_ctrl_n>;
+        mods = <(MOD_LCTL|MOD_RCTL)>;
+    };
+    m_shift_ctrl_none_n: mac_shift-ctrl-none-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp C_VOL_DN>, <&m_shift_ctrl_n>;
+        mods = <(MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL)>;
+    };
+    mac_enc_n: mac-enc-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&m_shift_ctrl_none_n>, <&m_alt_gui_n>;
+        mods = <(MOD_LALT|MOD_LGUI|MOD_RALT|MOD_RGUI)>;
+    };
+        
+    mac_enc: mac-enc {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&mac_enc_n>, <&mac_enc_p>;
         tap-ms = <10>;
     }; 
-        
+     
+    
+    //LED encorder    
     led_ca_p: ctrl-alt-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
@@ -311,6 +467,7 @@
         tap-ms = <10>;
     }; 
     
+    //JIS
     moSEMI: moSEMI {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -327,12 +484,12 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&kp A             &mt RIGHT_WIN S         &mt RIGHT_ALT D         &mt RCTRL F         &kp G        &tog NUM                    &kp H               &kp J          &kp K        &kp L       &kp SEMICOLON
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt ARR LC(SPC)                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt NUM SPACE  &trans                    &kp BACKSPACE     &lt SYM ENTER  &to JIS       &tog BT      &rgb_ug RGB_TOG
+&kp Q             &kp W             &kp E             &kp R            &kp T                                  &kp Y             &kp U          &kp I        &kp O       &kp P
+&kp A             &mt RIGHT_WIN S   &mt RIGHT_ALT D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X             &kp C             &kp V            &kp B          &lt MARR LC(SPC)        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                  &kp BACKSPACE     &lt SYM ENTER  &to JIS      &tog BT     &rgb_ug RGB_TOG
             >;   
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&mac_enc>;
         };
 
                  NUM_FUNC {
@@ -342,7 +499,7 @@
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >; 
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+            sensor-bindings = <&mac_enc>;
         };
 
               SYMBOLS {
@@ -352,17 +509,17 @@
 &none          &none              &none            &none        &kp PIPE        &trans   &kp TILDE  &kp INT3           &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
 &kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;  
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&mac_enc>;
         };
         
             JIS {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
 &kp A             &mt RIGHT_WIN S         &mt RIGHT_ALT D         &mt RCTRL F         &kp G        &tog JNUM                    &kp H               &kp J          &kp K        &kp L       &moSEMI
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt ARR LA(GRAVE)                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt WARR LA(GRAVE)                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt JNUM SPACE  &trans                    &kp BACKSPACE     &lt JSYM ENTER  &to 0       &tog BT      &rgb_ug RGB_TOG
             >;
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&win_enc>;
         };
         
         JIS_NUM {
@@ -372,7 +529,7 @@
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >;
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+            sensor-bindings = <&win_enc>;
         };
         
         JIS_SYMBOL {
@@ -382,18 +539,27 @@
 &none          &none              &none            &none        &kp JP_PIPE        &trans   &kp JP_TILDE  &kp JP_YEN           &none        &kp JP_LBRC        &kp JP_RBRC 
 &kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;
-            sensor-bindings = <&vol_alt_tab>;
+            sensor-bindings = <&win_enc>;
         }; 
 
-        ARROW {
+        MAC_ARROW {
             bindings = <
 &trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
-            sensor-bindings = <&vol_alt_tab>;
-        };               
+            sensor-bindings = <&mac_enc>;
+        };
+        WIN_ARROW {
+            bindings = <
+&trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
+&kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
+&trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
+&trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
+            >;
+            sensor-bindings = <&win_enc>;
+        };                       
 
         BT_RBG {
             bindings = <
