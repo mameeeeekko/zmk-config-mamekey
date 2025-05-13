@@ -210,7 +210,7 @@
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LS(LEFT)>;
         mods = <(MOD_RALT)>;
-        keep-mods = <(MOD_RALT>;
+        keep-mods = <(MOD_RALT)>;
     };
     alt_n: alt-negative {
         compatible = "zmk,behavior-mod-morph";
