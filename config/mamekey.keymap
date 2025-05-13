@@ -259,14 +259,7 @@
             #binding-cells = <0>;
             bindings = <&kp JP_SEMI>, <&kp JP_COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-     }; 
-    
-    led_control: led-control {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&led_br_sa_hu_n>, <&led_br_sa_hu_p>;
-        tap-ms = <10>;
-    };                        
+     };                    
               
 };
     
