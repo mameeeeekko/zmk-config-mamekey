@@ -5,7 +5,53 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <behaviors/rgbled_widget.dtsi>
 
-#define NUM 6
+#define NUM 1 //MAC US
+#define SYM 2 //MAC US
+#define ARR 3 //MAC US
+#define JIS 4 //WIN JIS
+#define JNUM 5 //WIN JIS
+#define JSYS 6
+#define BT 7
+
+#define JP_ZKHK  GRAVE        // Zenkaku ↔ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
+#define JP_MINUS MINUS        // -
+#define JP_CARET EQUAL        // ^
+#define JP_YEN   INT3         // ¥
+#define JP_AT    LBKT         // @
+#define JP_LBKT  RBKT         // [
+#define JP_EISU  CAPS         // Eisū (英数)
+#define JP_SEMI  SEMI         // ;
+#define JP_COLON SQT          // :
+#define JP_RBKT  NUHS         // ]
+#define JP_COMMA COMMA        // ,
+#define JP_DOT   DOT          // .
+#define JP_SLASH SLASH        // /
+#define JP_BSLH  INT1         // (backslash)
+#define JP_MHEN  INT5         // Muhenkan (無変換)
+#define JP_HENK  INT4         // Henkan (変換)
+#define JP_KANA  INT2         // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
+#define JP_EXCL  LS(N1)       // !
+#define JP_DQT   LS(N2)       // "
+#define JP_HASH  LS(N3)       // #
+#define JP_DLLR  LS(N4)       // $
+#define JP_PRCNT LS(N5)       // %
+#define JP_AMPS  LS(N6)       // &
+#define JP_SQT   LS(N7)       // '
+#define JP_LPAR  LS(N8)       // (
+#define JP_RPAR  LS(N9)       // )
+#define JP_EQUAL LS(JP_MINUS) // =
+#define JP_TILDE LS(JP_CARET) // ~
+#define JP_PIPE  LS(JP_YEN)   // |
+#define JP_GRAVE LS(JP_AT)    // `
+#define JP_LBRC  LS(JP_LBKT)  // {
+#define JP_CAPS  LS(JP_EISU)  // Caps Lock
+#define JP_PLUS  LS(JP_SEMI)  // +
+#define JP_ASTRK LS(JP_COLON) // *
+#define JP_RBRC  LS(JP_RBKT)  // }
+#define JP_LT    LS(JP_COMMA) // <
+#define JP_RT    LS(JP_DOT)   // >
+#define JP_QMARK LS(JP_SLASH) // ?
+#define JP_UNDER LS(JP_BSLH)  // _
 
 &mt {
     flavor = "balanced";
@@ -28,6 +74,13 @@
         
         single_quotation {
             bindings = <&kp SINGLE_QUOTE>;
+            layers = <0>; 
+            key-positions = <6 5>;
+        };
+        
+        single_quotation_JIS {
+            bindings = <&kp JP_SQT>;
+            layers = <JIS>; 
             key-positions = <6 5>;
         };
                        
@@ -38,16 +91,24 @@
 
         eq {
             bindings = <&kp EQUAL>;
+            layers = <0>; 
+            key-positions = <20 19>;
+        };
+        
+        eq_JIS {
+            bindings = <&kp JP_EQUAL>;
+            layers = <JIS>; 
             key-positions = <20 19>;
         };
 
         l3_arrow {
-            bindings = <&mo 3>;
+            bindings = <&mo ARR>;
             key-positions = <13 12>;
         };
                         
         minus {
             bindings = <&kp MINUS>;
+            layers = <0>; 
             key-positions = <9 8>;
         };
 
@@ -57,18 +118,24 @@
         };
 
         atmark {
-            bindings = <&kp AT_SIGN>;
+            bindings = <&kp AT_SIGN>; 
+            layers = <0>;  
+            key-positions = <31 30>;
+        };
+        atmark_JIS {
+            bindings = <&kp JP_AT>; 
+            layers = <JIS>;  
             key-positions = <31 30>;
         };
     };
 
     behaviors {
         
-        td_mt: tap_dance_mod_tap {
+    td_mt: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&lt 3 LA(GRAVE)>, <&kp LC(SPC)>;
+            bindings = <&lt ARR LA(GRAVE)>, <&kp LC(SPC)>;
         };
         
     alt_p: alt-positive {
@@ -184,7 +251,15 @@
         #sensor-binding-cells = <0>;
         bindings = <&led_br_sa_hu_n>, <&led_br_sa_hu_p>;
         tap-ms = <10>;
-    };           
+    }; 
+    
+    moSEMI: moSEMI {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp JP_SEMI>, <&kp JP_COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+     };               
+              
 };
     
     
@@ -195,38 +270,30 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog 1                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT SEMICOLON
+&mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog NUM                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT SEMICOLON
 &kp Z             &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt 1 SPACE  &trans                    &kp BACKSPACE     &lt 2 ENTER  &tog 4       &tog 6      &rgb_ug RGB_TOG
-
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt NUM SPACE  &trans                    &kp BACKSPACE     &lt SYM ENTER  &tog 4       &tog BT      &rgb_ug RGB_TOG
             >;   
-
             sensor-bindings = <&vol_alt_tab>;
         };
 
-                 NUM {
+                 NUM_FUNC {
             bindings = <
 &kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
 &kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
-&trans                   &trans                   &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
+&none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
-
-            >;
-            
+            >; 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
-
         };
 
               SYMBOLS {
             bindings = <
-&kp MINUS      &kp DOUBLE_QUOTES  &kp EXCLAMATION  &kp ASTERISK  &kp PLUS                 &kp CARET  &kp UNDERSCORE   &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOLLAR       &trans        &kp BACKSLASH   &trans   &kp HASH   &trans           &kp PERCENT   &kp LEFT_BRACKET      &kp LEFT_BRACKET
-&trans         &trans             &trans           &trans        &kp PIPE        &trans   &kp TILDE  &trans           &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE 
-&kp F6         &kp F7             &kp F8           &trans        &trans          &trans   &trans     &trans           &trans        &trans                &trans 
-
-
-            >;
-            
+&kp MINUS      &kp DOUBLE_QUOTES  &kp EXCLAMATION  &kp ASTERISK  &kp PLUS                 &kp CARET  &kp UNDERSCORE   &none        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOLLAR       &none        &kp BACKSLASH   &trans   &kp HASH   &none           &kp PERCENT   &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&none          &none              &none            &none        &kp PIPE        &trans   &kp TILDE  &none           &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
+&kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
+            >;  
             sensor-bindings = <&vol_alt_tab>;
         };
 
@@ -236,49 +303,50 @@
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
-
-
             >;
-
             sensor-bindings = <&vol_alt_tab>;
         };
         
-            layer_4 {
+            JIS {
             bindings = <
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-
-
+&kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
+&mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog 1                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT moSEMI
+&kp Z             &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &kp SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt 1 SPACE  &trans                    &kp BACKSPACE     &lt 2 ENTER  &tog 4       &tog 6      &rgb_ug RGB_TOG
             >;
-
             sensor-bindings = <&vol_alt_tab>;
         };
         
-        layer_5 {
+        JIS_NUM {
             bindings = <
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-
+&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp JP_PLUS
+&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp JP_ASTRK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
+&none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
+&trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
+            >;
+            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+        };
+        
+        JIS_SYMBOL {
+            bindings = <
+&kp JP_MINUS      &kp JP_DQT  &kp EXCLAMATION  &kp JP_ASTRK  &kp JP_PLUS                 &kp JP_CARET  &kp JP_UNDER   &none        &kp JP_LPAR  &kp JP_RPAR
+&kp JP_AMPS  &kp JP_SQT   &kp DOLLAR       &none        &kp JP_BSLH   &trans   &kp HASH   &none           &kp PERCENT   &kp JP_LBKT      &kp JP_RBKT
+&none          &none              &none            &none        &kp JP_PIPE        &trans   &kp JP_TILDE  &none           &none        &kp JP_LBRC        &kp JP_RBRC 
+&kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;
             sensor-bindings = <&vol_alt_tab>;
-        };
+        };        
 
-        layer_6 {
+        BT_RBG {
             bindings = <
 &bt BT_CLR_ALL  &trans  &trans      &trans        &bt BT_CLR                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4
 &trans  &trans        &trans        &trans        &trans        &trans       &trans        &trans        &trans        &trans           &trans
 &trans  &trans        &trans        &trans        &trans        &bootloader  &trans        &trans        &trans        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD
 &ind_bat  &ind_con        &trans        &trans        &trans        &trans       &trans        &trans        &trans        &trans           &trans
-
-
             >;
             sensor-bindings = <&led_control>;
         };        
-     };   
+    };   
 };
 
 / {
