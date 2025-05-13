@@ -262,7 +262,7 @@
     vol_arrow_n: volume-arrow-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp C_VOL_DOWN>, <&arrow_n>;
+        bindings = <&kp C_VOL_DN>, <&arrow_n>;
         mods = <(MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL)>;
     };
     vol_alt_gui_n: volume-alt-gui-negative {
