@@ -292,7 +292,7 @@
             bindings = <
 &kp MINUS      &kp DOUBLE_QUOTES  &kp EXCLAMATION  &kp ASTERISK  &kp PLUS                 &kp CARET  &kp UNDERSCORE   &none        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOLLAR       &none        &kp BACKSLASH   &trans   &kp HASH   &none           &kp PERCENT   &kp LEFT_BRACKET      &kp RIGHT_BRACKET
-&none          &none              &none            &none        &kp PIPE        &trans   &kp TILDE  &INT3           &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
+&none          &none              &none            &none        &kp PIPE        &trans   &kp TILDE  &kp INT3           &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
 &kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;  
             sensor-bindings = <&vol_alt_tab>;
