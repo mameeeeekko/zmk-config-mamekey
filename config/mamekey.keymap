@@ -7,10 +7,10 @@
 
 #define NUM 1 //MAC US
 #define SYM 2 //MAC US
-#define ARR 3 //MAC US
+#define ARR 3 //MAC WIN US
 #define JIS 4 //WIN JIS
 #define JNUM 5 //WIN JIS
-#define JSYS 6
+#define JSYM 6
 #define BT 7
 
 #define JP_ZKHK  GRAVE        // Zenkaku ↔ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
@@ -101,7 +101,7 @@
             key-positions = <20 19>;
         };
 
-        l3_arrow {
+        layer_arrow {
             bindings = <&mo ARR>;
             key-positions = <13 12>;
         };
@@ -270,9 +270,9 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog NUM                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT SEMICOLON
-&kp Z             &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt NUM SPACE  &trans                    &kp BACKSPACE     &lt SYM ENTER  &tog 4       &tog BT      &rgb_ug RGB_TOG
+&kp A             &kp S         &kp D         &kp F         &kp G        &tog NUM                    &kp H               &kp J          &kp K        &kp L       &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt NUM SPACE  &trans                    &kp BACKSPACE     &lt SYM ENTER  &to JIS       &tog BT      &rgb_ug RGB_TOG
             >;   
             sensor-bindings = <&vol_alt_tab>;
         };
@@ -310,9 +310,9 @@
             JIS {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&mt LEFT_SHIFT A  &kp S         &kp D         &kp F         &kp G        &tog 1                    &kp H               &kp J          &kp K        &kp L       &mt RIGHT_SHIFT moSEMI
-&kp Z             &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt 1 SPACE  &trans                    &kp BACKSPACE     &lt 2 ENTER  &tog 4       &tog 6      &rgb_ug RGB_TOG
+&kp A             &kp S         &kp D         &kp F         &kp G        &tog JNUM                    &kp H               &kp J          &kp K        &kp L       &moSEMI
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &td_mt                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt JNUM SPACE  &trans                    &kp BACKSPACE     &lt JSYM ENTER  &to 0       &tog BT      &rgb_ug RGB_TOG
             >;
             sensor-bindings = <&vol_alt_tab>;
         };
