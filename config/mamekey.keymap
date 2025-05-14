@@ -306,19 +306,12 @@
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };
-    //browser goback    
-    m_r_gui_p: mac-right-gui-positive {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp RIGHT>;
-        mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_RGUI)>;
-    };
+    //browser goback
     m_gui_p: mac-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_gui_p>, <&kp RIGHT>;
-        mods = <(MOD_LGUI)>;
+        bindings = <&kp 0>, <&kp RIGHT>;
+        mods = <(MOD_LGUI|MOD_RGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
     m_alt_gui_p: mac-alt-gui-positive {
@@ -377,18 +370,11 @@
         keep-mods = <(MOD_LALT)>;
     };
     //browser goback    
-    m_r_gui_n: mac-right-gui-negative {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LEFT>;
-        mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_RGUI)>;
-    };
     m_gui_n: mac-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_gui_n>, <&kp LEFT>;
-        mods = <(MOD_LGUI)>;
+        bindings = <&kp 0>, <&kp LEFT>;
+        mods = <(MOD_LGUI|MOD_RGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
     m_alt_gui_n: mac-alt-gui-negative {
