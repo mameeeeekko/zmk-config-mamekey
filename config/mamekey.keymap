@@ -320,7 +320,6 @@
         #binding-cells = <0>;
         bindings = <&m_r_ctrl_p>, <&kp DOWN>;
         mods = <(MOD_LCTL)>;
-        keep-mods = <(MOD_LCTL)>;
     }; 
     m_shift_p: mac-shift-positive {
         compatible = "zmk,behavior-mod-morph";
@@ -367,7 +366,6 @@
         #binding-cells = <0>;
         bindings = <&m_r_ctrl_n>, <&kp UP>;
         mods = <(MOD_LCTL)>;
-        keep-mods = <(MOD_LCTL)>;
     }; 
     m_shift_n: mac-shift-negative {
         compatible = "zmk,behavior-mod-morph";
