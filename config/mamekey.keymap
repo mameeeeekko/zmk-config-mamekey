@@ -4,6 +4,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <behaviors/rgbled_widget.dtsi>
+#include <dt-bindings/zmk/pointing.h>
+
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 120 // (好きな値)
 
 #define NUM 1 //MAC US
 #define SYM 2 //MAC US
@@ -137,6 +140,13 @@
     };
 
   behaviors {
+     
+    mouse_scrl: mouse_wheel_scrl {
+        compatible = "zmk,behavior-sensor-rotate-var";
+        #sensor-binding-cells = <2>;
+        bindings = <&msc>, <&msc>;
+        tap-ms = <10>;
+        };  
         
     td_mt: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
@@ -465,7 +475,7 @@
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >; 
-            sensor-bindings = <&mac_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
               SYMBOLS {
@@ -475,7 +485,7 @@
 &none          &none              &none            &none        &kp PIPE        &trans   &kp TILDE  &kp INT3           &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
 &kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;  
-            sensor-bindings = <&mac_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_RIGHT SCRL_LEFT>;
         };
         
             JIS {
@@ -495,7 +505,7 @@
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >;
-            sensor-bindings = <&win_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
         
         JIS_SYMBOL {
@@ -505,7 +515,7 @@
 &none          &none              &none            &none        &kp JP_PIPE        &trans   &kp JP_TILDE  &kp JP_YEN           &none        &kp JP_LBRC        &kp JP_RBRC 
 &kp F6         &kp F7             &kp F8           &trans       &trans          &trans   &trans     &trans           &trans        &trans                &trans 
             >;
-            sensor-bindings = <&win_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_RIGHT SCRL_LEFT>;
         }; 
 
         MAC_ARROW {
@@ -515,7 +525,7 @@
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
-            sensor-bindings = <&mac_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
         
         WIN_ARROW {
@@ -525,7 +535,7 @@
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
-            sensor-bindings = <&win_enc>;
+            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };                       
 
         BT_RBG {
