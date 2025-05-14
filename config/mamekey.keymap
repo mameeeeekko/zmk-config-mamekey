@@ -156,7 +156,7 @@
     w_alt_p: win-alt-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_alt_p>, <&kp TAB>;
+        bindings = <&w_r_alt_p>, <&kp TAB>;
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };    
