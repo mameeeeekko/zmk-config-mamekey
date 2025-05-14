@@ -196,8 +196,8 @@
     w_shift_p: win-shift-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp RIGHT>, <&kp DOWN>;
-        mods = <(MOD_RSFT)>;
+        bindings = <&none>, <&kp RIGHT>;
+        mods = <(MOD_RSFT|MOD_LSFT)>;
     };     
     w_shift_ctrl_p: win-shift-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
@@ -268,8 +268,8 @@
     w_shift_n: win-shift-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp LEFT>, <&kp UP>;
-        mods = <(MOD_RSFT)>;
+        bindings = <&none>, <&kp LEFT>;
+        mods = <(MOD_RSFT|MOD_LSFT)>;
     };      
     w_shift_ctrl_n: win-shift-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
@@ -298,28 +298,12 @@
     };
     
 //encorder control MAC
-<<<<<<< HEAD
-     
-    m_alt_p: mac-alt-positive {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp TAB>;
-        mods = <(MOD_LALT)>;
-        keep-mods = <(MOD_LALT)>;
-    };
-    //browser goback
-    m_gui_p: mac-gui-positive {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp RIGHT>;
-=======
 
     //app select    
     m_gui_p: mac-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&none>, <&kp TAB>;
->>>>>>> 9deba1e (fixxxxxx)
         mods = <(MOD_LGUI|MOD_RGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
@@ -330,24 +314,19 @@
         bindings = <&kp 0>, <&kp TAB>;
         mods = <(MOD_RCTL)>;
         keep-mods = <(MOD_RCTL)>;
-<<<<<<< HEAD
-    };
-    //desktop move    
-=======
-    };    
->>>>>>> 9deba1e (fixxxxxx)
+    };  
     m_ctrl_p: mac-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_ctrl_p>, <&kp RIGHT>;
+        bindings = <&m_r_ctrl_p>, <&kp DOWN>;
         mods = <(MOD_LCTL)>;
         keep-mods = <(MOD_LCTL)>;
     }; 
     m_shift_p: mac-shift-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp RIGHT>, <&kp DOWN>;
-        mods = <(MOD_RSFT)>;
+        bindings = <&none>, <&kp RIGHT>;
+        mods = <(MOD_RSFT|MOD_LSFT)>;
     };     
     m_shift_ctrl_p: mac-shift-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
@@ -367,28 +346,11 @@
         bindings = <&m_shift_ctrl_none_p>, <&m_gui_p>;
         mods = <(MOD_LGUI|MOD_RGUI)>;
     };
-    
-<<<<<<< HEAD
-    };
-    m_alt_n: mac-alt-negative {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LS(TAB)>;
-        mods = <(MOD_LALT)>;
-        keep-mods = <(MOD_LALT)>;
-    };
-    //browser goback    
-    m_gui_n: mac-gui-negative {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LEFT>;
-=======
     //app select    
     m_gui_n: mac-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&none>, <&kp LS(TAB)>;
->>>>>>> 9deba1e (fixxxxxx)
         mods = <(MOD_LGUI|MOD_RGUI)>;
         keep-mods = <(MOD_LGUI)>;
     };    
@@ -399,24 +361,19 @@
         bindings = <&kp 0>, <&kp LS(TAB)>;
         mods = <(MOD_RCTL)>;
         keep-mods = <(MOD_RCTL)>;
-<<<<<<< HEAD
-    };
-    //desk move    
-=======
     };    
->>>>>>> 9deba1e (fixxxxxx)
     m_ctrl_n: mac-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_ctrl_n>, <&kp LEFT>;
+        bindings = <&m_r_ctrl_n>, <&kp UP>;
         mods = <(MOD_LCTL)>;
         keep-mods = <(MOD_LCTL)>;
     }; 
     m_shift_n: mac-shift-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp LEFT>, <&kp UP>;
-        mods = <(MOD_RSFT)>; 
+        bindings = <&none>, <&kp LEFT>;
+        mods = <(MOD_RSFT|MOD_LSFT)>; 
   };         
     m_shift_ctrl_n: mac-shift-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
@@ -496,7 +453,7 @@
         default_layer {
             bindings = <
 &kp Q               &kp W             &kp E             &kp R            &kp T                                  &kp Y             &kp U          &kp I        &kp O       &kp P
-&mt RIGHT_SHIFT A   &mt LCTRL S       &mt RIGHT_WIN D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
+&kp A   &kp S       &kp D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
 &mt LEFT_SHIFT Z    &kp X             &kp C             &kp V            &kp B          &lt MARR LC(SPC)        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                  &kp BACKSPACE     &lt SYM ENTER  &to JIS      &tog BT     &rgb_ug RGB_TOG
             >;   
@@ -525,17 +482,10 @@
         
             JIS {
             bindings = <
-<<<<<<< HEAD
 &kp Q              &kp W             &kp E            &kp R           &kp T                                  &kp Y             &kp U           &kp I        &kp O       &kp P
-&mt RIGHT_SHIFT A  &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM              &kp H             &kp J           &kp K        &kp L       &moSEMI
+&kp A              &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM              &kp H             &kp J           &kp K        &kp L       &moSEMI
 &mt LEFT_SHIFT Z   &kp X             &kp C            &kp V           &kp B           &lt WARR LA(GRAVE)     &kp N             &kp M           &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL          &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans                 &kp BACKSPACE     &lt JSYM ENTER  &to 0        &tog BT     &rgb_ug RGB_TOG
-=======
-&kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&kp A             &mt S         &mt D         &mt RCTRL F         &kp G        &tog JNUM                    &kp H               &kp J          &kp K        &kp L       &moSEMI
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt WARR LA(GRAVE)                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt JNUM SPACE  &trans                    &kp BACKSPACE     &lt JSYM ENTER  &to 0       &tog BT      &rgb_ug RGB_TOG
->>>>>>> 9deba1e (fixxxxxx)
             >;
             sensor-bindings = <&win_enc>;
         };
