@@ -1,9 +1,6 @@
 #include "mamekey.dtsi"
 #include <dt-bindings/led/led.h>
 
-&msc_input_listener {
-    input-processors = <&zip_temp_layer 2 2000>;
-}
 
 &pinctrl {
     spi3_default: spi3_default {
