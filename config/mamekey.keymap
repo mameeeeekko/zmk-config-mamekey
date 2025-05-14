@@ -287,29 +287,21 @@
     };
     
 //encorder control MAC
-    
-    //browser forward  
-    m_r_alt_p: mac-right-alt-positive {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp RIGHT>;
-        mods = <(MOD_RALT)>;
-        keep-mods = <(MOD_LGUI)>;
-    };
+     
     m_alt_p: mac-alt-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_alt_p>, <&kp TAB>;
+        bindings = <&kp 0>, <&kp TAB>;
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };
-    //desk move    
+    //browser goback    
     m_r_gui_p: mac-right-gui-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp RIGHT>;
         mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_LCTL)>;
+        keep-mods = <(MOD_RGUI)>;
     };
     m_gui_p: mac-gui-positive {
         compatible = "zmk,behavior-mod-morph";
@@ -330,18 +322,26 @@
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp TAB>;
         mods = <(MOD_RCTL)>;
-        keep-mods = <(MOD_LCTL)>;
-    };    
+        keep-mods = <(MOD_RCTL)>;
+    };
+    //desktop move    
     m_ctrl_p: mac-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_ctrl_p>, <&kp DOWN>;
+        bindings = <&m_r_ctrl_p>, <&kp RIGHT>;
         mods = <(MOD_LCTL)>;
-    };  
+        keep-mods = <(MOD_LCTL)>;
+    }; 
+    m_shift_p: mac-shift-positive {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp RIGHT>, <&kp DOWN>;
+        mods = <(MOD_RSFT)>;
+    };     
     m_shift_ctrl_p: mac-shift-ctrl-positive {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp RIGHT>, <&m_ctrl_p>;
+        bindings = <&m_shift_p>, <&m_ctrl_p>;
         mods = <(MOD_LCTL|MOD_RCTL)>;
     };
     m_shift_ctrl_none_p: mac_shift-ctrl-none-positive {
@@ -357,28 +357,21 @@
         mods = <(MOD_LALT|MOD_LGUI|MOD_RALT|MOD_RGUI)>;
     };
     
-    //browser back
-    m_r_alt_n: mac-right-alt-negative {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp 0>, <&kp LEFT>;
-        mods = <(MOD_RALT)>;
-        keep-mods = <(MOD_LGUI)>;
     };
     m_alt_n: mac-alt-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_alt_n>, <&kp LS(TAB)>;
+        bindings = <&kp 0>, <&kp LS(TAB)>;
         mods = <(MOD_LALT)>;
         keep-mods = <(MOD_LALT)>;
     };
-    //desk move    
+    //browser goback    
     m_r_gui_n: mac-right-gui-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LEFT>;
         mods = <(MOD_RGUI)>;
-        keep-mods = <(MOD_LCTL)>;
+        keep-mods = <(MOD_RGUI)>;
     };
     m_gui_n: mac-gui-negative {
         compatible = "zmk,behavior-mod-morph";
@@ -399,18 +392,26 @@
         #binding-cells = <0>;
         bindings = <&kp 0>, <&kp LS(TAB)>;
         mods = <(MOD_RCTL)>;
-        keep-mods = <(MOD_LCTL)>;
-    };    
+        keep-mods = <(MOD_RCTL)>;
+    };
+    //desk move    
     m_ctrl_n: mac-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&m_r_ctrl_n>, <&kp UP>;
+        bindings = <&m_r_ctrl_n>, <&kp LEFT>;
         mods = <(MOD_LCTL)>;
-    };  
+        keep-mods = <(MOD_LCTL)>;
+    }; 
+    m_shift_n: mac-shift-negative {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT>, <&kp UP>;
+        mods = <(MOD_RSFT)>; 
+  };         
     m_shift_ctrl_n: mac-shift-ctrl-negative {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp LEFT>, <&m_ctrl_n>;
+        bindings = <&m_shift_n>, <&m_ctrl_n>;
         mods = <(MOD_LCTL|MOD_RCTL)>;
     };
     m_shift_ctrl_none_n: mac_shift-ctrl-none-negative {
@@ -485,7 +486,7 @@
         default_layer {
             bindings = <
 &kp Q             &kp W             &kp E             &kp R            &kp T                                  &kp Y             &kp U          &kp I        &kp O       &kp P
-&kp A             &mt RIGHT_WIN S   &mt RIGHT_ALT D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
+&mt RIGHT_SHIFT A  &mt LCTRL S   &mt RIGHT_WIN D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
 &mt LEFT_SHIFT Z  &kp X             &kp C             &kp V            &kp B          &lt MARR LC(SPC)        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                  &kp BACKSPACE     &lt SYM ENTER  &to JIS      &tog BT     &rgb_ug RGB_TOG
             >;   
@@ -515,7 +516,7 @@
             JIS {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R         &kp T                                  &kp Y               &kp U          &kp I        &kp O       &kp P
-&kp A             &mt RIGHT_WIN S         &mt RIGHT_ALT D         &mt RCTRL F         &kp G        &tog JNUM                    &kp H               &kp J          &kp K        &kp L       &moSEMI
+&mt LEFT_SHIFT A  &mt RIGHT_WIN S   &mt RIGHT_ALT D         &mt RCTRL F         &kp G        &tog JNUM                    &kp H               &kp J          &kp K        &kp L       &moSEMI
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt WARR LA(GRAVE)                    &kp N               &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LCTRL DEL       &lt JNUM SPACE  &trans                    &kp BACKSPACE     &lt JSYM ENTER  &to 0       &tog BT      &rgb_ug RGB_TOG
             >;
