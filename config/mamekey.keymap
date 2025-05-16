@@ -443,6 +443,13 @@
         tap-ms = <10>;
     }; 
     
+    media_control: media-control {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&kp C_RW>, <&kp C_FF>;
+        tap-ms = <10>;
+    };     
+    
     //JIS
     moSEMI: moSEMI {
             compatible = "zmk,behavior-mod-morph";
@@ -525,7 +532,7 @@
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&media_control>;
         };
         
         WIN_ARROW {
@@ -535,7 +542,7 @@
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&media_control>;
         };                       
 
         BT_RBG {
