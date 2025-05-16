@@ -2,7 +2,7 @@
   "layouts": {
     "default_layout": {
       "name": "default_layout",
-      layout": [
+      "layout": [
         { "row": 4, "col": 0, "x": 0.0, "y": 0.0 },
         { "row": 0, "col": 1, "x": 1.0, "y": 0.0 },
         { "row": 4, "col": 1, "x": 2.0, "y": 0.0 },
@@ -48,5 +48,15 @@
         { "row": 3, "col": 6, "x": 10.0, "y": 3.0 }
       ]
      } 
-  }
+  },
+  
+  "sensors": [
+    {
+      "ref": "encoder",
+      "name": "encoder",
+      "identifier": "encoder",
+      "compatible": "alps,ec11",
+      "enabled": false
+    }
+  ]
 }
