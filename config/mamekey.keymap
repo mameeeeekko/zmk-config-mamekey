@@ -468,8 +468,8 @@
         default_layer {
             bindings = <
 &kp Q               &kp W             &kp E             &kp R            &kp T                                  &kp Y             &kp U          &kp I        &kp O       &kp P
-&mt LEFT_SHIFT A   &kp S       &kp D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
-&kp Z    &kp X             &kp C             &kp V            &kp B          &rgb_ug RGB_TOG        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp A   &kp S       &kp D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
+ç    &kp X             &kp C             &kp V            &kp B          &rgb_ug RGB_TOG        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                  &lt SYM ENTER   &kp BACKSPACE    &to JIS      &tog BT     &lt MARR LC(SPC)
             >;   
             sensor-bindings = <&mac_enc>;
@@ -498,8 +498,8 @@
             JIS {
             bindings = <
 &kp Q              &kp W             &kp E            &kp R           &kp T                                  &kp Y             &kp U           &kp I        &kp O       &kp P
-&mt LEFT_SHIFT A            &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM              &kp H             &kp J           &kp K        &kp L       &moSEMI
-&kp Z   &kp X             &kp C            &kp V           &kp B           &rgb_ug RGB_TOG     &kp N             &kp M           &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp A            &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM              &kp H             &kp J           &kp K        &kp L       &moSEMI
+&mt LEFT_SHIFT Z   &kp X             &kp C            &kp V           &kp B           &rgb_ug RGB_TOG     &kp N             &kp M           &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
 &kp LCTRL          &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans               &lt JSYM ENTER   &kp BACKSPACE   &to 0        &tog BT     &lt WARR LA(GRAVE)
             >;
             sensor-bindings = <&win_enc>;
