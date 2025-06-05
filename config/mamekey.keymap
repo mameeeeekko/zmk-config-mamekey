@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <behaviors/rgbled_widget.dtsi>
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 120 // (好きな値)
 #include <dt-bindings/zmk/pointing.h>
 
@@ -469,16 +470,16 @@
             bindings = <
 &kp Q               &kp W             &kp E             &kp R            &kp T                                  &kp Y             &kp U          &kp I        &kp O       &kp P
 &kp A   &kp S       &kp D   &mt RCTRL F      &kp G          &tog NUM                &kp H             &kp J          &kp K        &kp L       &kp SEMICOLON
-ç    &kp X             &kp C             &kp V            &kp B          &rgb_ug RGB_TOG        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
-&kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                  &lt SYM ENTER   &kp BACKSPACE    &to JIS      &tog BT     &lt MARR LC(SPC)
+&mt LEFT_SHIFT Z    &kp X             &kp C             &kp V            &kp B          &rgb_ug RGB_TOG        &kp N             &kp M          &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
+&kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE  &trans                 &kp BACKSPACE　 &lt SYM ENTER      &to JIS      &tog BT     &lt MARR LC(SPC)
             >;   
             sensor-bindings = <&mac_enc>;
         };
 
                  NUM_FUNC {
             bindings = <
-&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
-&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
+&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
+&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >; 
@@ -507,8 +508,8 @@
         
         JIS_NUM {
             bindings = <
-&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp JP_PLUS
-&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp JP_ASTRK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
+&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
+&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp JP_ASTRK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp JP_PLUS
 &none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >;
@@ -529,7 +530,7 @@
             bindings = <
 &trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
-&trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
+&kp LEFT_SHIFT    &kp LCTRL          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &kp RCTRL           &kp RIGHT_SHIFT
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
             sensor-bindings = <&media_control>;
@@ -539,7 +540,7 @@
             bindings = <
 &trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
-&trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
+&kp LEFT_SHIFT    &kp LCTRL          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &kp RCTRL           &kp RIGHT_SHIFT
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
             sensor-bindings = <&media_control>;
@@ -548,7 +549,7 @@
         BT_RBG {
             bindings = <
 &bt BT_CLR_ALL  &trans  &trans      &trans        &bt BT_CLR                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans        &trans       &trans        &trans        &trans        &trans           &trans
+&trans  &trans        &trans        &trans        &trans        &trans       &out OUT_TOG       &trans        &trans        &trans           &trans
 &trans  &trans        &trans        &trans        &trans        &bootloader  &trans        &trans        &trans        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD
 &ind_bat  &ind_con        &trans        &trans        &trans        &trans       &trans        &trans        &trans        &trans           &trans
             >;
