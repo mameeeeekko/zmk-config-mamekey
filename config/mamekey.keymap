@@ -1,4 +1,4 @@
-#include <behaviors.dtsi>
+j#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
@@ -106,14 +106,19 @@
             key-positions = <20 19>;
         };
 
+        mac_layer_bt {
+            bindings = <&tog BT>;
+            key-positions = <18 17>;
+        };
+        
         mac_layer_arrow {
-            bindings = <&mo MARR>;
+            bindings = <&tog MARR>;
             layers = <0>; 
             key-positions = <13 12>;
         };
 
         win_layer_arrow {
-            bindings = <&mo WARR>;
+            bindings = <&tog WARR>;
             layers = <JIS>; 
             key-positions = <13 12>;
         };        
@@ -494,10 +499,10 @@
 
                  NUM_FUNC {
             bindings = <
-&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
-&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS
-&none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
-&trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
+&kp LG(LS(NUMBER_4))     &kp LG(X)   &kp LC(LS(TAB))         &kp LC(TAB)              kp F5                                &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
+&kp LG(A)                &kp LG(C)              &kp LG(LEFT_BRACKET)    &kp LG(RIGHT_BRACKET)    &kp LG(V)           &trans           &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS
+&kp LG(Z)                &kp LG(LS(Z))          &kp LC(LEFT_ARROW)      &kp LC(RIGHT_ARROW)      &kp LC(UP_ARROW)    &trans           &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
+&trans                   &trans                 &trans                  &trans                   &trans              &trans           &trans           &trans           &trans           &kp PERIOD       &trans
             >; 
             sensor-bindings = <&scroll_up_down>;
         };
@@ -517,16 +522,16 @@
 &kp Q              &kp W             &kp E            &kp R           &kp T                                  &kp Y             &kp U           &kp I        &kp O       &kp P
 &kp A            &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM              &kp H             &kp J           &kp K        &kp L       &moSEMI
 &mt LEFT_SHIFT Z   &kp X             &kp C            &kp V           &kp B           &rgb_ug RGB_TOG     &kp N             &kp M           &kp COMMA    &kp DOT     &mt RIGHT_SHIFT SLASH
-&kp LCTRL          &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans              &kp BACKSPACE  &lt JSYM ENTER    &to 0        &mo BT     &lt WARR LA(GRAVE)
+&kp LCTRL          &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans              &kp BACKSPACE  &lt JSYM ENTER    &to 0        &moppp..n BT     &lt WARR LA(GRAVE)
             >;
             sensor-bindings = <&win_enc>;
         };
         
         JIS_NUM {
             bindings = <
-&kp C_VOL_DN             &kp C_VOL_UP             &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
-&kp LG(LS(LEFT_ARROW))   &kp LG(LS(RIGHT_ARROW))  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LG(TAB)  &trans  &kp JP_ASTRK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp JP_PLUS
-&none                    &none                    &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp C_MUTE   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
+&kp LG(LS(S))             &kp LC(X)            &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
+&kp LC(A)   &kp LC(C)  &kp LA(LEFT_ARROW)      &kp LA(RIGHT_ARROW)      &kp LC(V)  &trans  &kp JP_ASTRK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp JP_PLUS
+&kp LC(Z)                &kp LC(Y)                &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp LG(D)   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp JP_EQUAL
 &trans                   &trans                   &trans                  &trans                   &trans       &trans  &trans           &trans           &trans           &kp PERIOD       &trans
             >;
             sensor-bindings = <&scroll_up_down>;
@@ -544,9 +549,9 @@
 
         MAC_ARROW {
             bindings = <
-&trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
+&none    &none          &kp UP_ARROW    &none          &none           &none    &none        &kp UP_ARROW    &none           &none
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
-&kp LEFT_SHIFT    &kp LCTRL          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &kp RCTRL           &kp RIGHT_SHIFT
+&kp LEFT_SHIFT    &kp LCTRL          &none          &none           &none   &trans  &none    &none          &none          &kp RCTRL           &kp RIGHT_SHIFT
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
             sensor-bindings = <&media_control>;
@@ -554,9 +559,9 @@
         
         WIN_ARROW {
             bindings = <
-&trans    &trans          &kp UP_ARROW    &trans           &trans           &trans    &trans          &kp UP_ARROW    &trans           &trans
+&none    &none          &kp UP_ARROW    &none          &none           &none    &none        &kp UP_ARROW    &none           &none
 &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END  &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END 
-&kp LEFT_SHIFT    &kp LCTRL          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &kp RCTRL           &kp RIGHT_SHIFT
+&kp LEFT_SHIFT    &kp LCTRL          &none          &none           &none   &trans  &none    &none          &none          &kp RCTRL           &kp RIGHT_SHIFT
 &trans    &trans          &trans          &trans           &trans   &trans  &trans    &trans          &trans          &trans           &trans
             >;
             sensor-bindings = <&media_control>;
@@ -564,9 +569,9 @@
 
         BT_RBG {
             bindings = <
-&bt BT_CLR_ALL  &trans  &trans      &trans        &bt BT_CLR                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans        &trans       &out OUT_TOG       &trans        &trans        &trans           &trans
-&trans  &trans        &trans        &trans        &trans        &bootloader  &trans        &trans        &trans        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD
+&bt BT_CLR_ALL  &none  &none      &none       &bt BT_CLR                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4
+&none  &none        &none       &none        &none        &trans       &out OUT_TOG       &none        &none       &none          &none
+&none   &none      &none       &none       &none        &rgb_ug RGB_TOG   &none       &none       &none       &rgb_ug RGB_BRI  &rgb_ug RGB_BRD
 &ind_bat  &ind_con        &trans        &trans        &trans        &trans       &trans        &trans        &trans        &trans           &trans
             >;
             sensor-bindings = <&led_control>;
