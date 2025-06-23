@@ -499,7 +499,7 @@
 
                  NUM_FUNC {
             bindings = <
-&kp LG(LS(NUMBER_4))     &kp LG(X)   &kp LC(LS(TAB))         &kp LC(TAB)              kp F5                                &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
+&kp LG(LS(NUMBER_4))     &kp LG(X)              &kp LC(LS(TAB))         &kp LC(TAB)              &kp F5                               &kp SLASH        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS
 &kp LG(A)                &kp LG(C)              &kp LG(LEFT_BRACKET)    &kp LG(RIGHT_BRACKET)    &kp LG(V)           &trans           &kp ASTERISK     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS
 &kp LG(Z)                &kp LG(LS(Z))          &kp LC(LEFT_ARROW)      &kp LC(RIGHT_ARROW)      &kp LC(UP_ARROW)    &trans           &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL
 &trans                   &trans                 &trans                  &trans                   &trans              &trans           &trans           &trans           &trans           &kp PERIOD       &trans
