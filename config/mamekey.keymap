@@ -113,13 +113,13 @@
         
         mac_layer_arrow {
             bindings = <&tog MARR>;
-            layers = <0>; 
+            layers = <0 MARR>; 
             key-positions = <13 12>;
         };
 
         win_layer_arrow {
             bindings = <&tog WARR>;
-            layers = <JIS>; 
+            layers = <JIS WARR>; 
             key-positions = <13 12>;
         };        
                         
