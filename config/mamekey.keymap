@@ -484,8 +484,8 @@
             bindings = <
 &kp Q               &kp W             &kp E             &kp R            &kp T                             &kp Y           &kp U          &kp I        &kp O      &kp P
 &kp A               &kp S             &kp D             &mt RCTRL F      &kp G           &tog NUM          &kp H           &kp J          &kp K        &kp L      &kp SEMICOLON
-&mt LEFT_SHIFT Z    &kp X             &kp C             &kp V            &kp B           &rgb_ug RGB_TOG   &kp N           &kp M          &kp COMMA    &kp DOT    &mt RIGHT_SHIFT SLASH
-&kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE   &trans            &kp BACKSPACE   &lt SYM ENTER  &to JIS      &mo BT     &lt MARR LC(SPC)
+&mt LEFT_SHIFT Z    &kp X             &kp C             &kp V            &kp B           &to JIS           &kp N           &kp M          &kp COMMA    &kp DOT    &mt RIGHT_SHIFT SLASH
+&kp LCTRL           &kp LEFT_WIN      &kp LEFT_ALT      &mt LCTRL DEL    &lt NUM SPACE   &trans            &kp BACKSPACE   &lt SYM ENTER  &kp RIGHT_SHIFT   &mo BT     &lt MARR LC(SPC)
             >;   
             sensor-bindings = <&mac_enc>;
         };
@@ -502,10 +502,10 @@
 
           SYMBOLS {
             bindings = <
-&kp LS(SLASH)  &kp DOUBLE_QUOTES  &kp EXCLAMATION  &kp ASTERISK  &kp PLUS                 &kp CARET  &kp UNDERSCORE  &none        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOLLAR       &none         &kp BACKSLASH   &trans   &kp HASH   &none           &kp PERCENT  &kp LEFT_BRACKET      &kp RIGHT_BRACKET
-&kp F6         &kp F7             &kp F8           &none         &kp PIPE        &trans   &kp TILDE  &kp INT3        &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
-&trans         &trans             &trans           &trans        &trans          &trans   &trans     &trans          &trans       &trans                &trans 
+&kp LS(SLASH)  &kp DOUBLE_QUOTES  &kp EXCLAMATION  &kp ASTERISK  &kp PLUS                     &kp CARET  &kp UNDERSCORE  &none        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOLLAR       &none         &kp LA(BACKSLASH)   &trans   &kp HASH   &none           &kp PERCENT  &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&kp F6         &kp F7             &kp F8           &none         &kp PIPE            &trans   &kp TILDE  &kp BACKSLASH   &none        &kp LEFT_BRACE        &kp RIGHT_BRACE 
+&trans         &trans             &trans           &trans        &trans              &trans   &trans     &trans          &trans       &trans                &trans 
             >;  
             sensor-bindings = <&scroll_left_right>;
         };
@@ -524,8 +524,8 @@
             bindings = <
 &kp Q             &kp W             &kp E            &kp R           &kp T                             &kp Y          &kp U           &kp I        &kp O      &kp P
 &kp A             &mt RIGHT_WIN S   &mt RIGHT_ALT D  &mt RCTRL F     &kp G           &tog JNUM         &kp H          &kp J           &kp K        &kp L      &moSEMI
-&mt LEFT_SHIFT Z  &kp X             &kp C            &kp V           &kp B           &rgb_ug RGB_TOG   &kp N          &kp M           &kp COMMA    &kp DOT    &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans            &kp BACKSPACE  &lt JSYM ENTER  &to 0        &mo BT     &lt WARR LA(GRAVE)
+&mt LEFT_SHIFT Z  &kp X             &kp C            &kp V           &kp B           &to 0           Apq  &kp N          &kp M           &kp COMMA    &kp DOT    &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN      &kp LEFT_ALT     &mt LCTRL DEL   &lt JNUM SPACE  &trans            &kp BACKSPACE  &lt JSYM ENTER  &kp RIGHT_SHIFT        &mo BT     &lt WARR LA(GRAVE)
             >;
             sensor-bindings = <&win_enc>;
         };
@@ -564,7 +564,7 @@
             bindings = <
 &bt BT_CLR_ALL  &none     &none    &none    &bt BT_CLR                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3      &bt BT_SEL 4
 &none           &none     &none    &none    &none        &trans            &out OUT_TOG  &none         &none         &none             &none
-&none           &none     &none    &none    &none        &rgb_ug RGB_TOG   &none         &none         &none         &rgb_ug RGB_BRI   &rgb_ug RGB_BRD
+&none           &none     &none    &none    &none        &rgb_ug RGB_TOG   &rgb_ug RGB_TOG   &none         &none         &rgb_ug RGB_BRI   &rgb_ug RGB_BRD
 &ind_bat        &ind_con  &trans   &trans   &trans       &trans            &trans        &trans        &trans        &trans            &trans
             >;
             sensor-bindings = <&led_control>;
