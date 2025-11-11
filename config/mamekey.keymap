@@ -74,7 +74,7 @@
 
         shift_tab {
             bindings = <&kp LS(TAB)>;
-            key-positions = <2 1>;
+            key-positions = <1 2>;
         };
         
         single_quotation {
@@ -91,7 +91,7 @@
                        
         tab {
             bindings = <&kp TAB>;
-            key-positions = <8 7>;
+            key-positions = <2 3>;
         };
         
         map_capslock {
@@ -126,25 +126,25 @@
         mac_layer_L_PARENTHESIS {
             bindings = <&kp LEFT_PARENTHESIS>;
             layers = <0>;
-            key-positions = <7 8>;
+            key-positions = <6 7>;
         };
 
         mac_layer_R_PARENTHESIS {
             bindings = <&kp RIGHT_PARENTHESIS>;
             layers = <0>;
-            key-positions = <8 9>;
+            key-positions = <7 8>;
         };
         
         win_layer_L_PARENTHESIS {
             bindings = <&kp JP_LPAR>;
             layers = <JIS>;
-            key-positions = <7 8>;
+            key-positions = <6 7>;
         };
 
         win_layer_R_PARENTHESIS {
             bindings = <&kp JP_RPAR>;
             layers = <JIS>;
-            key-positions = <8 9>;
+            key-positions = <7 8>;
         };
         
         mac_layer_L_BRACKET {
