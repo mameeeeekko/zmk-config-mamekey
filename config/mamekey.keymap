@@ -93,6 +93,18 @@
             bindings = <&kp TAB>;
             key-positions = <8 7>;
         };
+        
+        map_capslock {
+            bindings = <&kp CAPSLOCK>;
+            layers = <0>;
+            key-positions = <10 11>;
+        };
+        
+        win_capslock {
+            bindings = <&kp LS(CAPSLOCK)>;
+            layers = <JIS>;
+            key-positions = <10 11>;
+        };
 
         eq {
             bindings = <&kp EQUAL>;
@@ -106,20 +118,92 @@
             key-positions = <20 19>;
         };
 
-        mac_layer_bt {
-            bindings = <&tog BT>;
-            key-positions = <18 17>;
+//        mac_layer_bt {
+//           bindings = <&tog BT>;
+//           key-positions = <18 17>;
+//        };
+
+        mac_layer_L_PARENTHESIS {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            layers = <0>;
+            key-positions = <7 8>;
+        };
+
+        mac_layer_R_PARENTHESIS {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            layers = <0>;
+            key-positions = <8 9>;
+        };
+        
+        win_layer_L_PARENTHESIS {
+            bindings = <&kp JP_LPAR>;
+            layers = <JIS>;
+            key-positions = <7 8>;
+        };
+
+        win_layer_R_PARENTHESIS {
+            bindings = <&kp JP_RPAR>;
+            layers = <JIS>;
+            key-positions = <8 9>;
+        };
+        
+        mac_layer_L_BRACKET {
+            bindings = <&kp LEFT_BRACKET>;
+            layers = <0>;
+            key-positions = <17 18>;
+        };
+
+        mac_layer_R_BRACKET {
+            bindings = <&kp RIGHT_BRACKET>;
+            layers = <0>;
+            key-positions = <18 19>;
+        };
+        
+        win_layer_L_BRACKET {
+            bindings = <&kp JP_LBKT>;
+            layers = <JIS>;
+            key-positions = <17 18>;
+        };
+
+        win_layer_R_BRACKET {
+            bindings = <&kp JP_RBKT>;
+            layers = <JIS>;
+            key-positions = <18 19>;
+        };
+        
+        mac_layer_L_BRACE {
+            bindings = <&kp LEFT_BRACE>;
+            layers = <0>;
+            key-positions = <28 29>;
+        };
+
+        mac_layer_R_BRACE {
+            bindings = <&kp RIGHT_BRACE>;
+            layers = <0>;
+            key-positions = <29 30>;
+        };
+        
+        win_layer_L_BRACE {
+            bindings = <&kp JP_LBRC>;
+            layers = <JIS>;
+            key-positions = <28 29>;
+        };
+
+        win_layer_R_BRACE {
+            bindings = <&kp JP_RBRC>;
+            layers = <JIS>;
+            key-positions = <29 30>;
         };
         
         mac_layer_arrow {
-            bindings = <&tog MARR>;
-            layers = <0 MARR>; 
+            bindings = <&mo MARR>;
+            layers = <0>; 
             key-positions = <13 12>;
         };
 
         win_layer_arrow {
-            bindings = <&tog WARR>;
-            layers = <JIS WARR>; 
+            bindings = <&mo WARR>;
+            layers = <JIS>; 
             key-positions = <13 12>;
         };        
                         
