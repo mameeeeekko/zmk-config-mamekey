@@ -2,6 +2,10 @@
 #include <physical_layouts.dtsi>
 #include <dt-bindings/zmk/bt.h>
 
+&uicr {
+        nfct-pins-as-gpios;
+};
+
 / {
 
     chosen {
